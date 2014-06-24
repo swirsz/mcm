@@ -3,21 +3,21 @@ mcm
 
 The program is what I believe is a N^5 second-best matrix chain calculator.
 
-mcm.java is based on a simple optimum matrix chain multiplication program available on Wikipedia http://en.wikipedia.org/wiki/Matrix_chain_multiplication and expanded it to calculate worst-case, second-best, and second worst-case values and parenthesizations.
+mcm.java is based on a simple optimum matrix chain multiplication program available on [Wikipedia](http://en.wikipedia.org/wiki/Matrix_chain_multiplication) and expanded it to calculate worst-case, second-best, and second worst-case values and parenthesizations.
 
 The program works by first using 3 nested for loops to calculate the optimal parenthesization.  To calculate second-best instead of best-case, the program requires 2 more nested for loops and calculates all the possible cases where a single suboptimal decision is made, the second best instead of the best option.
 
 The number of calculations that the program needs to make are minimized by simulating what we did on paper. For example with 8 matrix dimensions, you have a total of 7 matrices, and since the first row cannot ever possibly have a second best option, you need to only calculate rows 2-7:
 
 8 input values/7 matrix table:
-
+```
 row-column
 2 2,3,4,5,6
 3 3,4,5,6
 4 4,5,6
 5 5,6
 6 6
-
+```
 
 To simulate making the one sub-optimal decision, matrixChainOrder() is called with three parameters: the input array, the row, and the column where the second-best option is taken. All other cases will always use the optimal choice.
 
@@ -28,32 +28,31 @@ I'm using a hash table style duplicate checker to only show a couple of examples
 It would be very easy to limit or sort the output of 2nd-best cases displayed by the program to actually show only the real "2nd best", but currently I'm displaying everything because it highlights very convincingly which suboptimal choices affect the total and which ones do not.
 
 Examples
-===
-_________________________________________
+==
 
-Problem 1  Matrix Chain Problem 
+Problem 1 Matrix Chain Problem
 
-Consider  a  matrix  chain  whose  sequence  of  dimensions  is (5, 10, 3, 12, 5, 50, 6, 4).    Determine  a  worst­case  parenthesization  for  this product.    Also  give  the  total  number  of  scalar  multiplications  required  for  this parenthesization. 
-
- 
-ANSWER ONE-parenthesization: _____ (1((23)(45)))(67)________. 
- 
-ANSWER TWO-number of multiplications: ______14060____________.   
+Consider a matrix chain whose sequence of dimensions is(5, 10, 3, 12, 5, 50, 6, 4).  Determine a worstcase parenthesization for this product.  Also give the total number of scalar multiplications required for this parenthesization.
 
 
-Problem 2  Another Matrix Chain Problem   
+ANSWER ONE-parenthesization:_____ (1((23)(45)))(67)________
 
-Consider  a  matrix  chain  whose  sequence  of  dimensions  is (5, 10, 3, 12, 5, 50, 6, 4).  Determine a true second­best parenthesization for this product. 
- 
+ANSWER TWO-number of multiplications: ______14060____________
 
-ANSWER ONE-parenthesization: _____ (12)((34)((56)7) _______.   
- 
-ANSWER TWO-number of multiplications: _____2070___________.  
+
+Problem 2 Another Matrix Chain Problem
+
+Consider a matrix chain whose sequence of dimensions is(5, 10, 3, 12, 5, 50, 6, 4). Determine a true second best parenthesization for this product.
+
+
+ANSWER ONE-parenthesization: _____ (12)((34)((56)7) _______
+
+ANSWER TWO-number of multiplications: _____2070___________
 
 _________________________________________
 Program output: (5, 10, 3, 12, 5, 50, 6, 4)
 _________________________________________
-
+```
 Optimal Parenthesization
 
 2052
@@ -83,7 +82,7 @@ Almost Worst Parenthesizations
 (1((((23)(45))6)7))
 13480
 (((1((23)(45)))6)7)
-
+```
 _________________________________________
 SU13 home3 KEY.pdf
 _________________________________________
@@ -108,7 +107,7 @@ ANSWER TWO-number of multiplications: _______186____________.
 _________________________________________
 Program output: (4, 2, 6, 3, 7, 7, 6, 4, 1)
 _________________________________________
-
+```
 Optimal Parenthesization
 
 174
@@ -140,14 +139,14 @@ Almost Worst Parenthesizations
 (((12)(((34)(56))7))8)
 912
 ((12)((((34)(56))7)8))
-
+```
 _________________________________________
 
 Same data with debugging information:
 
 (demonstrates the program picking the optimum and then the second optimum solution out of all of the alternatives)
 _________________________________________
-
+```
 Optimal Parenthesization
 
 48 2nd: 48 row:1 col:1
@@ -284,5 +283,4 @@ Almost Worst Parenthesizations
 (((12)(((34)(56))7))8)
 912
 ((12)((((34)(56))7)8))
-_________________________________________
-
+```
