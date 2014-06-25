@@ -1,13 +1,11 @@
-mcm
+Second-Best Matrix Chain Multiplication Optimization Calculator
 ===
 
-The program is what I believe is a N^5 second-best matrix chain calculator.
-
-mcm.java is based on a simple optimum matrix chain multiplication program available on [Wikipedia](http://en.wikipedia.org/wiki/Matrix_chain_multiplication) and expanded it to calculate worst-case, second-best, and second worst-case values and parenthesizations.
+mcm.java is based on a simple optimum matrix chain multiplication program available on [Wikipedia](http://en.wikipedia.org/wiki/Matrix_chain_multiplication) extended to calculate worst-case, second-best, and second worst-case values and parenthesizations.
 
 The program works by first using 3 nested for loops to calculate the optimal parenthesization.  To calculate second-best instead of best-case, the program requires 2 more nested for loops and calculates all the possible cases where a single suboptimal decision is made, the second best instead of the best option.
 
-The number of calculations that the program needs to make are minimized by simulating what we did on paper. For example with 8 matrix dimensions, you have a total of 7 matrices, and since the first row cannot ever possibly have a second best option, you need to only calculate rows 2-7:
+The number of calculations that the program needs to make are minimized by simulating what would be done on paper. For example with 8 matrix dimensions, you have a total of 7 matrices, and since the first row cannot ever possibly have a second best option, you need to only calculate rows 2-7:
 
 8 input values/7 matrix table:
 ```
@@ -23,7 +21,7 @@ To simulate making the one sub-optimal decision, matrixChainOrder() is called wi
 
 The variables secondbest/secondworst are only utilized if the row and column specified matchup with the row and column being analyzed by the program.
 
-I'm using a hash table style duplicate checker to only show a couple of examples of unique values under the "Almost Best Parenthesizations" categories. If these lines are removed the program will show all possible "2nd best" parenthesizations including all the duplicate solutions.
+The program implements a hash table style duplicate checker to only show a couple of examples of unique values under the "Almost Best Parenthesizations" categories. If these lines are removed the program will show all possible "2nd best" parenthesizations including all the duplicate solutions.
 
 It would be very easy to limit or sort the output of 2nd-best cases displayed by the program to actually show only the real "2nd best", but currently I'm displaying everything because it highlights very convincingly which suboptimal choices affect the total and which ones do not.
 
@@ -84,8 +82,7 @@ Almost Worst Parenthesizations
 (((1((23)(45)))6)7)
 ```
 _________________________________________
-SU13 home3 KEY.pdf
-_________________________________________
+
 
 Problem 1  Matrix Chain Problem 
 
